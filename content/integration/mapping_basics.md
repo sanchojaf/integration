@@ -15,7 +15,7 @@ There are two main types of parameters:
 | Attribute            | Description               |
 | :--------------------| :-------------------------|
 | **Single Value**     | These represent single pieces of configuration data like API keys, email addresses, etc, using one of the following datatypes: string, integer, float and boolean.
-| **Lists Value**      | Lists are special parameters generally used to hold lookup tables for matching data for disparate systems, for example shipping methods between Amazon and Spree Commerce
+| **Lists Value**      | Lists are special parameters generally used to hold lookup tables for matching data for disparate systems, for example shipping methods between Amazon and Cenit
 
 
 ### Example List Parameter
@@ -46,7 +46,7 @@ We do this to not limit the opportunity to act on a message to a single instance
 
 The first `shipment:ready` message would be generated when the `order:new` message gets processed, but at this point the `released_at` attribute would not be set (so a Filter would be used to prevent the mapping acting on the message). 
 
-When the `released_at` attribute was set on your Spree Commerce storefront an `order:update` message would generate a second `shipment:ready` message which would meet the filter criteria and be sent to the endpoint.
+When the `released_at` attribute was set on your Cenit storefront an `order:update` message would generate a second `shipment:ready` message which would meet the filter criteria and be sent to the endpoint.
 
 Identifiers are then used to prevent duplicate messages from being sent to the same endpoint service more than once, by capturing key attributes from the message that indicate the message as unique (for example the order and shipment number in the case of a `shipment:ready` message). 
 

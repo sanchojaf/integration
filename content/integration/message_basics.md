@@ -4,11 +4,11 @@ title: Message Basics
 
 ## Message Generation
 
-The Spree Commerce hub is responsible for processing and delivering [messages](terminology#messages) based on a pre-configured set of business logic specific to a particular store. The messages processed by the Hub are generated in one of three possible ways.
+The Cenit hub is responsible for processing and delivering [messages](terminology#messages) based on a pre-configured set of business logic specific to a particular store. The messages processed by the Hub are generated in one of three possible ways.
 
 ### Polling
 
-The most common way for messages to enter the system is via a scheduled poller that talks to the Spree Commerce [storefront API](/api). These pollers will ask the storefront for new messages that have been created or updated since the last time it checked.
+The most common way for messages to enter the system is via a scheduled poller that talks to the Cenit [storefront API](/api). These pollers will ask the storefront for new messages that have been created or updated since the last time it checked.
 
 It's not important to understand exactly how these API differences result in a message. For the purposes of this guide, it is sufficient for you to understand that changes to orders, payments, shipments, etc. come in via a scheduled polling action at regular intervals. The result of this will be a series of appropriate messages relevant to the state change.
 
@@ -22,7 +22,7 @@ See the specific [Message](messages_overview) guides for more details on each of
 
 ### Response
 
-The second way for a message to enter the system is in response to a [service request](terminology#service_requests) to an [endpoint](terminology#endpoints). When an end point is processing a message, it will typically respond with a new message. That new message can in turn be processed by the Spree Commerce hub.
+The second way for a message to enter the system is in response to a [service request](terminology#service_requests) to an [endpoint](terminology#endpoints). When an end point is processing a message, it will typically respond with a new message. That new message can in turn be processed by the Cenit hub.
 
 Let's look at a specific example where we are using an integration that takes new shipments and dispatches them to a third party logistics provider (3PL) for drop shipping. The `process_shipment` service of this endpoint will return a `notification:info` message in response to this service request.
 
@@ -114,7 +114,7 @@ There is, however, a more informative way to convey the successful delivery of a
 
 Responding with a [notification message](notification_messages) has the advantage of allowing the service to pass additional human-readable information back to the hub. By default, notification messages will be turned into [log entries](terminology#log_entries), which can be displayed in a detailed tab in the store's admin interface.
 
-Sometimes, however, it's important to convey more than just "success" plus a log entry. A major advantage to using Spree Commerce hub is that it allows one integration to respond to events taking place in another. In order for this to happen, however, the Service Request of the first integration needs to return something more specific in addition to a log message.
+Sometimes, however, it's important to convey more than just "success" plus a log entry. A major advantage to using Cenit hub is that it allows one integration to respond to events taking place in another. In order for this to happen, however, the Service Request of the first integration needs to return something more specific in addition to a log message.
 
 Let's look at a specific example where we want a particular integration to capture a previously authorized credit card payment once a shipment is ready to ship. Suppose further that we want to send an email message to the customer once we capture the payment on their card. Once we've taken care of the necessary mappings, we could use an endpoint with a `capture_payment` method.
 
@@ -147,7 +147,7 @@ post '/capture_payment' do
 end
 ```
 
-In this case we've actually returned multiple messages. We return a `notification:info` message so that can be displayed on the events tab in the Spree Commerce storefront, but we also return a `payment:capture` message. The idea here is that another integration can then listen specifically for `payment:capture` messages and do something specific knowing that a payment has been captured (update Quickbooks, send an email to the customer, etc.)
+In this case we've actually returned multiple messages. We return a `notification:info` message so that can be displayed on the events tab in the Cenit storefront, but we also return a `payment:capture` message. The idea here is that another integration can then listen specifically for `payment:capture` messages and do something specific knowing that a payment has been captured (update Quickbooks, send an email to the customer, etc.)
 
 ***
 Note that services are not required to return a pre-defined message Type. You are free to create your own endpoints that return custom message types.
@@ -193,19 +193,19 @@ There are times where processing a service request results in an exceptional con
 
 #### How Failures are Generated
 
-Endpoints can sometimes encounter an exception when trying to communicate with a third-party service through their API (ex. Shipwire is down for maintenance.) Typically these situations will result in exceptions. In these instances there is typically no need to rescue the exception, you can just allow it to result in a `5XX Error` response and the Spree Commerce hub will treat the request has failed.
+Endpoints can sometimes encounter an exception when trying to communicate with a third-party service through their API (ex. Shipwire is down for maintenance.) Typically these situations will result in exceptions. In these instances there is typically no need to rescue the exception, you can just allow it to result in a `5XX Error` response and the Cenit hub will treat the request has failed.
 
 If the third party API is recuing exceptions or reporting permanent failure type situations as `200 OK` you may need to examine the respone more carefully and then raise your own exception (or just return `500 Internal Server Error` and supply your own error message.)
 
 #### How Failures are Handled
 
-The Spree Commerce hub will treat a failure as extraordinary condition. It will continue to attempt to redeliver the message until it is successful. This is extremely useful when third party services experience temporary service disruptions since no messages are ever lost during the outage.
+The Cenit hub will treat a failure as extraordinary condition. It will continue to attempt to redeliver the message until it is successful. This is extremely useful when third party services experience temporary service disruptions since no messages are ever lost during the outage.
 
 ***
 Our hub uses an [exponential backoff](http://en.wikipedia.org/wiki/Exponential_backoff) algorithm to gradually increase the amount of time between retries.
 ***
 
-Failure conditions in a live production environment are also monitored by the Spree Commerce staff. As part of your paid Spree Commerce plan they will take action to help rectify the situation.
+Failure conditions in a live production environment are also monitored by the Cenit staff. As part of your paid Cenit plan they will take action to help rectify the situation.
 
 ## Message Parameters
 

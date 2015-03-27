@@ -4,12 +4,12 @@ title: Reporting
 
 ## Overview
 
-The Spree Commerce hub connector is designed to make managing your storefront integrations quick and painless. It is what handles communication between your storefront and the Spree Commerce hub itself.
+The Cenit hub connector is designed to make managing your storefront integrations quick and painless. It is what handles communication between your storefront and the Cenit hub itself.
 
 In addition to allowing you to [configure](configuration) your integrations, it also provides functionality that let's you inspect your message queues and view any generated [notifications](notification_messages) from the hub.
 
 ***
-This guide assumes you already have the Spree Commerce hub connector configured for your Spree storefront. For more information on configuring the hub, please view the [Configuration](configuration) guide.
+This guide assumes you already have the Cenit hub connector configured for your Spree storefront. For more information on configuring the hub, please view the [Configuration](configuration) guide.
 ***
 
 ## Message Queues
@@ -24,7 +24,7 @@ When on the  integration overview screen of the "Integration" tab of your storef
 
 #### Incoming Queue
 
-The incoming queue contains newly created messages that have not yet been processed by the Spree Commerce hub. This is the starting queue for all new messages.
+The incoming queue contains newly created messages that have not yet been processed by the Cenit hub. This is the starting queue for all new messages.
 
 #### Accepted Queue
 

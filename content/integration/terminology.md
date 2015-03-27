@@ -2,7 +2,7 @@
 title: Terminology
 ---
 
-This guide provides a summary of the terms often used when referencing the Spree Commerce hub. Most of the terms outlined here also have detailed guides covering them.
+This guide provides a summary of the terms often used when referencing the Cenit hub. Most of the terms outlined here also have detailed guides covering them.
 
 ## Integrations
 
@@ -12,9 +12,9 @@ Each integration is generally provided by a single [endpoint](#endpoints) applic
 
 ## Messages
 
-Messages are the core of the Spree Commerce hub. A single action within a storefront can result in several discrete Messages being sent to multiple Endpoints. A Message can be created in one of two ways:
+Messages are the core of the Cenit hub. A single action within a storefront can result in several discrete Messages being sent to multiple Endpoints. A Message can be created in one of two ways:
 
-1. Indirectly as the result of events within a Spree Commerce storefront which the hub discovers when it polls the store. Examples of such events are new customers, orders, and shipments.
+1. Indirectly as the result of events within a Cenit storefront which the hub discovers when it polls the store. Examples of such events are new customers, orders, and shipments.
 2. In response to a Message that is being processed by an Endpoint.
 
 ### Attributes
@@ -38,7 +38,7 @@ The following is an example of the JSON representation of a typical message:
 
 Endpoints are small standalone web applications that can be subscribed to certain Message types via Mappings. Our hub delivers and tracks each Message as a Service Request is sent to all of its subscribed Endpoints. The Hub includes lots of existing Endpoints for popular services and applications, but you can also create custom or private Endpoints to help integrate with proprietary systems.
 
-Any Message within the Spree Commerce hub can be consumed by an Endpoint, with each individual Message resulting in a JSON-encoded Message being sent via an `HTTP POST` request to a pre-configured Endpoint URL.
+Any Message within the Cenit hub can be consumed by an Endpoint, with each individual Message resulting in a JSON-encoded Message being sent via an `HTTP POST` request to a pre-configured Endpoint URL.
 
 Using the hub's control panel, you can configure a list of the Message types you want to subscribe to, and a list of corresponding Endpoint URLs that will process them.
 
@@ -123,6 +123,6 @@ For more please review the [Notification Messages guide](notification_messages)
 
 ## Schedulers
 
-Pollers are responsible for monitoring a Spree Commerce storefront's API for changes and converting these changes to new messages as events are detected. This polling approach simplifies integration from a store owner's perspective, as there are no components of the Spree Commerce hub operating within the storefront itself.
+Pollers are responsible for monitoring a Cenit storefront's API for changes and converting these changes to new messages as events are detected. This polling approach simplifies integration from a store owner's perspective, as there are no components of the Cenit hub operating within the storefront itself.
 
 The Poller also provides a heart beat monitor for a store which can raise alerts quickly when failures occur.
