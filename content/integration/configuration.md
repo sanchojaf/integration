@@ -4,7 +4,7 @@ title: Configuration
 
 ## Overview
 
-The SpreeCommerce hub configuration tool is designed to make managing your Spree integrations quick and painless. It is what handles communication between your storefront and the SpreeCommerce hub itself.
+The Cenit hub configuration tool is designed to make managing your Spree integrations quick and painless. It is what handles communication between your storefront and the Cenit hub itself.
 
 Installing the tool is a simple matter of adding one line to your product's `Gemfile`, and running two commands. Once that is done, you can manage your own third-party service integrations on the fly.
 
@@ -37,11 +37,11 @@ Now when you launch your store and visit your Admin Interface by navigating to t
 
 ![Integration Tab](/images/integration/integration_tab.jpg)
 
-It is here that you will establish connections to the SpreeCommerce hub, add and remove integrations, configure integrations, and enable and disable services.
+It is here that you will establish connections to the Cenit hub, add and remove integrations, configure integrations, and enable and disable services.
 
 ## Making a Connection
 
-Now that you have `spree_hub_connector` installed in your application, you need to connect it to the SpreeCommerce hub.
+Now that you have `spree_hub_connector` installed in your application, you need to connect it to the Cenit hub.
 
 ***
 If you have multiple stores that you maintain from the same domain, you will first need to select the store you want to make connections for before you can manage your integrations.
@@ -86,7 +86,7 @@ Once you have properly enabled and configured any of the endpoint's services you
 By hovering over the buttons on this integration, you see that you have several options for actions you can take:
 
 * Edit Properties - Re-open the configuration window, enable/disable individual services, change parameters for a service.
-* Refresh - Re-query the SpreeCommerce hub manually to get any new information.
+* Refresh - Re-query the Cenit hub manually to get any new information.
 * Remove - Remove all of the mappings for individual services to this endpoint. Does not actually delete the integration itself, but will cause the integration not to appear on your store's "Active Integrations" section.
 * Disable All - Clicking the "Enabled" button means the individual services for the integration will be disabled. The integration will still appear on your store's "Active Integrations" section.
 

@@ -4,7 +4,7 @@ title: Overview
 
 ## Introduction
 
-The Spree Commerce hub connects your storefront to an increasing array of third-party systems and services, to help you solve the complex integration requirements of your growing e-commerce business.
+The Cenit hub connects your storefront to an increasing array of third-party systems and services, to help you solve the complex integration requirements of your growing e-commerce business.
 
 The hub is a messaging system that pulls events as they happen from your storefront, and using it's customizable routing and decision layer helps to direct the messages to independent integrations.
 
@@ -12,7 +12,7 @@ These integrations connect to key line of business applications for accounting, 
 
 ## Messages
 
-Messages are the core of the Spree Commerce hub. A single action within a storefront can result in several discrete messages being delivered to multiple integrations. Messages are represented as simple JSON documents, the following is an example of the basic message structure:
+Messages are the core of the Cenit hub. A single action within a storefront can result in several discrete messages being delivered to multiple integrations. Messages are represented as simple JSON documents, the following is an example of the basic message structure:
 
 <pre class="headers"><code>Basic message structure</code></pre>
 <%= json :message %>
@@ -21,7 +21,7 @@ For more details on messages please refer to the [Message Basics Guide](/integra
 
 ## Architecture
 
-The Spree Commerce hub is a fully managed commercial SaaS product, that leverages our open source experience to provide a unique and flexible integration environment. Each integration (such as Quickbooks, NetSuite, Mandrill, Quiet Logistics) are provided by a single standalone [endpoint](/integration/terminology.html#endpoints) application. 
+The Cenit hub is a fully managed commercial SaaS product, that leverages our open source experience to provide a unique and flexible integration environment. Each integration (such as Quickbooks, NetSuite, Mandrill, Quiet Logistics) are provided by a single standalone [endpoint](/integration/terminology.html#endpoints) application. 
 
 We are committed to open sourcing all endpoint applications (where possible), along with providing extensive documentation and support for creating your own custom endpoints to further extend the integration possibilities available.
 
@@ -41,7 +41,7 @@ A single message stored on the incoming queue might be mapped to multiple integr
 
 ### Accepted Queue
 
-Once a message has made it's way to the Accepted queue it's delivery to the integration's endpoint is guaranteed. The Spree Commerce support team actively monitors and troubleshoots problem messages on the accepted queue, and will contact you to help resolve any problems as they occur.
+Once a message has made it's way to the Accepted queue it's delivery to the integration's endpoint is guaranteed. The Cenit support team actively monitors and troubleshoots problem messages on the accepted queue, and will contact you to help resolve any problems as they occur.
 
 ## Message Delivery
 
