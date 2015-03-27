@@ -413,18 +413,6 @@ pre.headers code {
   color: #E4532E;
 }
 
-/* DEVELOPER GUIDES */
-.developer.home #subheader {
-  padding-top: 20px;
-}
-.developer.home #subheader .container {
-  background: url('../../images/developer-banner.png') no-repeat center;
-  min-height: 440px;
-}
-.developer #subheader {
-  background-image: url('../../images/developer-pattern.jpg');
-}
-
 /* INTEGRATOR GUIDES */
 .integration.home #subheader .container {
   background: url('../../images/integrator-banner.png') no-repeat center 100px;
@@ -432,18 +420,6 @@ pre.headers code {
 }
 .integration.home #subheader .container #site-title {
   margin-top: 0;
-}
-
-/* USER GUIDES */
-.user.home #subheader .container {
-  background: url('../../images/user-banner.png') no-repeat center top;
-  min-height: 440px;
-}
-.user.home #subheader .container #site-title {
-  margin-top: 100px;
-}
-.user.home #subheader .container #site-title h1 {
-  letter-spacing: 10px
 }
 
 /* Browser fixes */
